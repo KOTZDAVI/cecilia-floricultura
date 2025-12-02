@@ -114,6 +114,66 @@
             transform: translateY(-2px);
         }
 
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--primary-gold);
+            margin-left: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-gold);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Vitrine Section */
+        .vitrine-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+        }
+
+        .vitrine-section h2 {
+            color: var(--primary-gold);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .vitrine-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #f0f0f0;
+        }
+
+        /* Instagram Section */
+        .insta-section {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .insta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: transform 0.3s;
+        }
+
+        .insta-btn:hover {
+            transform: scale(1.05);
+        }
+
         /* Header */
         header {
             position: fixed;
@@ -541,7 +601,7 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -607,6 +667,9 @@
                 qualidade e criatividade.</p>
             <a href="https://wa.me/5562999537782" target="_blank" class="btn btn-primary">
                 <i class="fab fa-whatsapp"></i> Fale Conosco
+            </a>
+            <a href="vitrine.html" class="btn btn-secondary">
+                <i class="fas fa-store"></i> Ver Vitrine
             </a>
         </div>
     </section>
@@ -720,6 +783,33 @@
                         área de Floricultura."</p>
                     <p style="margin-top: 20px; font-weight: 600; color: var(--primary-gold-dark);">- Cecília Flores</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vitrine Highlight Section -->
+    <section class="section-padding vitrine-section">
+        <div class="container">
+            <h2>Explore Nossa Vitrine Virtual</h2>
+            <p>Descubra nossa coleção completa de arranjos exclusivos, buquês e opções de presentes em nossa vitrine
+                digital interativa.</p>
+            <a href="vitrine.html" class="btn btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">
+                <i class="fas fa-store"></i> Acessar Vitrine Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="section-padding insta-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Siga-nos no Instagram</h2>
+                <p style="color: var(--text-light); margin-top: 20px;">Fique por dentro das novidades e inspire-se com
+                    nossas criações diárias.</p>
+
+                <a href="https://instagram.com/ceciliafloresaltoparaisogoias" target="_blank" class="insta-btn">
+                    <i class="fab fa-instagram"></i> @ceciliafloresaltoparaisogoias
+                </a>
             </div>
         </div>
     </section>
