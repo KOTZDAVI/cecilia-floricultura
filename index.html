@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cecília Flores - Transformando sentimentos em flores com arranjos personalizados, decoração e muito carinho.">
+    <title>Cecília Flores | Arranjos Personalizados e Decoração</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #F9F9F9;
+            /* Cream/White variant */
+            --bg-secondary: #FFFFFF;
+            --primary-gold: #FFD700;
+            --primary-gold-dark: #D4AF37;
+            /* Slightly darker for text/borders */
+            --accent-green: #6B8E23;
+            --text-color: #333333;
+            --text-light: #666666;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 215, 0, 0.3);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .gold-text {
+            color: var(--primary-gold-dark);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-gold);
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #fff;
+            color: var(--primary-gold-dark);
+            border-color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: url('images/hero.png');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            /* Darken slightly for readability */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #000;
+            max-width: 800px;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #000;
+            text-shadow: none;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            color: #000;
+            text-shadow: none;
+        }
+
+        /* Values & Vision */
+        .values-section {
+            background-color: var(--bg-secondary);
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-gold);
+            margin: 10px auto 0;
+        }
+
+        .vision-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Products & Services */
+        .products-services {
+            background-color: var(--bg-color);
+        }
+
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .ps-column h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-gold-dark);
+            border-left: 4px solid var(--accent-green);
+            padding-left: 15px;
+        }
+
+        .ps-list {
+            list-style: none;
+        }
+
+        .ps-list li {
+            background: #fff;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .ps-list li:hover {
+            background: #fff;
+            border-left: 4px solid var(--primary-gold);
+            transform: translateX(5px);
+        }
+
+        .ps-list li i {
+            color: var(--accent-green);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .ps-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        /* History */
+        .history-section {
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .history-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .history-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+
+        .footer-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+        }
+
+        .footer-info i {
+            color: var(--primary-gold);
+            width: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .whatsapp-float:hover {
+            background-color: #fff;
+            color: #25d366;
+            transform: scale(1.1);
+        }
+
+        /* Modal/Lightbox */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            animation: zoom 0.6s;
+        }
+
+        .modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: var(--primary-gold);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .clickable-item {
+            cursor: pointer;
+        }
+
+        .clickable-item:hover i {
+            transform: scale(1.2);
+            transition: transform 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .ps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-leaf"></i> Cecília Flores
+                </a>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#essencia">Essência</a></li>
+                    <li><a href="#criacoes">O Que Criamos</a></li>
+                    <li><a href="#historia">História</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transformando Sentimentos em Flores</h1>
+            <p>Encantar pessoas transformando sentimentos em flores, oferecendo arranjos personalizados com carinho,
+                qualidade e criatividade.</p>
+            <a href="https://wa.me/5562999537782" target="_blank" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Fale Conosco
+            </a>
+        </div>
+    </section>
+
+    <!-- Values & Vision -->
+    <section id="essencia" class="section-padding values-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Nossa Essência</h2>
+            </div>
+
+            <div class="vision-box">
+                <i class="fas fa-eye" style="font-size: 2rem; color: var(--primary-gold); margin-bottom: 15px;"></i>
+                <h3>Nossa Visão</h3>
+                <p>Ser referência regional em arranjos florais personalizados, reconhecida pela delicadeza, inovação e
+                    pela capacidade de transformar momentos especiais em memórias inesquecíveis.</p>
+            </div>
+
+            <div class="values-grid">
+                <!-- Value 1 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Cuidado e Sensibilidade</h3>
+                </div>
+                <!-- Value 2 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Qualidade em Cada Detalhe</h3>
+                </div>
+                <!-- Value 3 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Criatividade e Personalização</h3>
+                </div>
+                <!-- Value 4 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Compromisso com a Natureza</h3>
+                </div>
+                <!-- Value 5 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Ética e Transparência</h3>
+                </div>
+                <!-- Value 6 -->
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3>Atendimento Humanizado</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products & Services -->
+    <section id="criacoes" class="section-padding products-services">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 60px;">
+                <h2 class="section-title">O Que Criamos</h2>
+            </div>
+
+            <div class="ps-grid">
+                <!-- Products Column -->
+                <div class="ps-column">
+                    <img src="images/buque.png" alt="Buquê Personalizado" class="ps-image">
+                    <h3>Nossos Produtos</h3>
+                    <ul class="ps-list">
+                        <li class="clickable-item" data-image="images/prod_decoracao.png" data-title="Decoração"><i
+                                class="fas fa-spa"></i> Decoração</li>
+                        <li class="clickable-item" data-image="images/prod_buques.jpg" data-title="Buquês"><i
+                                class="fas fa-gift"></i> Buquês</li>
+                        <li class="clickable-item" data-image="images/prod_arranjos.jpg" data-title="Arranjos"><i
+                                class="fas fa-fan"></i> Arranjos</li>
+                        <li class="clickable-item" data-image="images/prod_jardinagem.jpg" data-title="Jardinagens"><i
+                                class="fas fa-tree"></i> Jardinagens</li>
+                        <li class="clickable-item" data-image="images/prod_coroas.jpg" data-title="Coroas"><i
+                                class="fas fa-cross"></i> Coroas</li>
+                        <li><i class="fas fa-plus"></i> E muito mais...</li>
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="ps-column">
+                    <img src="images/decoracao.png" alt="Decoração de Eventos" class="ps-image">
+                    <h3>Nossos Serviços</h3>
+                    <ul class="ps-list">
+                        <li class="clickable-item" data-image="images/serv_decoracao_casamento.jpg"
+                            data-title="Decoração em Pousadas ou Casamento"><i class="fas fa-church"></i> Decoração em
+                            Pousadas ou Casamento</li>
+                        <li class="clickable-item" data-image="images/prod_jardinagem.jpg"
+                            data-title="Serviço de Jardinagem"><i class="fas fa-tools"></i> Serviço de Jardinagem</li>
+                        <li class="clickable-item" data-image="images/prod_jardinagem.jpg"
+                            data-title="Decoração de Jardins"><i class="fas fa-calendar-check"></i> Decoração de Jardins
+                            com Manutenção Trimestral</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History -->
+    <section id="historia" class="section-padding history-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Desde 2013, Florescendo</h2>
+            </div>
+            <div class="history-content">
+                <div class="history-text">
+                    <p>"Comecei em 2013 porque as pessoas onde moro gostam muito de plantas e arranjos. Na época não
+                        tinha nem uma Floricultura aqui. Hoje sou uma das mais renomadas da cidade. Em 2023 ganhei o
+                        certificado de melhor atendimento e qualidade. Hoje tenho um bom currículo de qualificação na
+                        área de Floricultura."</p>
+                    <p style="margin-top: 20px; font-weight: 600; color: var(--primary-gold-dark);">- Cecília Flores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Cecília Flores</h4>
+                    <div class="footer-info">
+                        <p>CNPJ: 18.425.898/0001-05</p>
+                        <p>Resp: Cecília Flores</p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <div class="footer-info">
+                        <p><i class="fas fa-envelope"></i> wilmaleila554@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> (62) 99953-7782</p>
+                        <p><i class="fas fa-clock"></i> Seg - Sáb: 8h às 18h</p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Localização</h4>
+                    <div class="footer-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Avenida Paraíso, Quadra 72, Lote 02, Setor Paraisinho
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Cecília Flores. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption" class="modal-caption"></div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5562999537782" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links (Polyfill-like behavior if needed, but CSS scroll-behavior usually handles it)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Modal Logic
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+        const captionText = document.getElementById("caption");
+        const closeBtn = document.getElementsByClassName("close-modal")[0];
+
+        document.querySelectorAll('.clickable-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const imgSrc = this.getAttribute('data-image');
+                const title = this.getAttribute('data-title');
+
+                if (imgSrc) {
+                    modal.style.display = "block";
+                    modalImg.src = imgSrc;
+                    captionText.innerHTML = title;
+                }
+            });
+        });
+
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
